@@ -24,6 +24,19 @@ A personal bot enriching GPT chatbot by using GPT3 API to get answers about your
 - Ask the bot single a question by running `python chatbot.py query --text "<YOUR_QUESTION_HERE>`
 - Teach the bot the content of a folder / single file by running `python chatbot.py teach --path "<YOUR_PATH_HERE>`
 
+## Autmoate folder
+- You can also autmoate a folder to teach the bot the content of a new file when it is added to the folder. In Mac this can be done by using the Automator.app -> Folder Action -> Run Shell Script -> 
+```
+# Your Python program's path
+program_path=/Users/alonk/src/PersonalGPT/chatbot.py
+
+# The filename of the newly added file
+filename="$1"
+
+# Run the Python program and pass the filename as an argument
+python3 "$program_path" "teach" "--path" "$filename"
+```
+
 
 ## Contact
 If you have any questions or feedback, please contact me at akiriati@hotmail.com
