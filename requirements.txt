@@ -1,0 +1,11 @@
+docx==0.2.4
+numpy==1.23.5
+openai==0.26.5
+openai_whisper==20230124
+pandas==1.5.3
+pdfminer==20191125
+python_docx==0.8.11
+PyYAML==6.0
+tenacity==8.2.0
+tiktoken==0.2.0
+whisper==1.1.10

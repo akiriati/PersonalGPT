@@ -9,6 +9,7 @@ def query(question, history=""):
     df = pd.read_csv(Config.DB_PATH)
     prompt = construct_prompt(question, df, history, top_n=3)
     # Get the answer
+    print(prompt)
     response = get_completion(prompt)
     return (response["choices"][0]["text"])
 
@@ -16,10 +17,11 @@ def query(question, history=""):
 
 
 def construct_prompt(question, df, history="", top_n=Config.NUMBER_OF_MOST_RELEVANT_SECTIONS):
+
     context = generate_context(question, df, top_n)
-    header = """Answer the question in details, based on the provided context and the conversation history, and if the answer is not there, say I don't know."""
-    context = """\n\nContext:\n\n""" + context
-    conversation_prompt = ("""\n\nConversation History:\n\n""" + history) if history else ""
+    header = """Answer the question in details, based only on the provided context and nothing else, and if the answer is not contained within the text below, say "I don't know.", do not invent or deduce!\n\n"""
+    context = """Context:\n\n""" + context if context else ""
+    conversation_prompt = ("""\n\nConversation so far:\n\n""" + history) if history else ""
     return header + "".join(context) + "".join(conversation_prompt) + "Q: " + question + "\n A:"
 
 def generate_context(question, df, top_n=Config.NUMBER_OF_MOST_RELEVANT_SECTIONS):
