@@ -37,7 +37,6 @@ filename="$1"
 python3 "$program_path" "teach" "--path" "$filename"
 ```
 
-<img width="510" alt="Screenshot 2023-02-11 at 15 59 57" src="https://user-images.githubusercontent.com/10947653/218262010-fc956e8b-21ee-4c34-b69d-ae9f532a9018.png">
 
 
 
