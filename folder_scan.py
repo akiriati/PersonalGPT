@@ -15,4 +15,5 @@ def scan_all_files_in_path(folder_path):
         extractor = get_extractor(os.path.join(folder_path, filename))
         all_segments.extend(extractor.get_segments())
 
+
     return all_segments

@@ -1,9 +1,10 @@
 import argparse
 import os
+import sys
 
 from constants import init_constants_from_config
 from db import init_db
-from folder_scan import scan_all_files_in_path, extract_text_from_path
+from folder_scan import extract_text_from_path
 from query import query
 from teach import teach
 
@@ -21,6 +22,8 @@ if __name__ == "__main__":
     if args.command == "teach":
         if args.path:
             segments = extract_text_from_path(os.path.expanduser(args.path))
+            print (segments)
+            exit()
             print ("I'm always happy to learn new things :)")
             print("I'm sure there are a lot of interesting things I can learn in " + args.path)
             teach(segments)
@@ -29,7 +32,7 @@ if __name__ == "__main__":
             print("Error: the 'teach' command requires a '--path' argument")
     elif args.command == "query":
         if args.text:
-            print(query(args.text, ""))
+            print(query(args.text)["choices"][0]["text"])
         else:
             print("Error: the 'query' command requires a '--query' argument")
     elif args.command == "bot":
@@ -37,9 +40,18 @@ if __name__ == "__main__":
         history = ""
         while True:
             message = input("You: ")
-            chatbot_response = "Chatbot: " + query(message, history)
-            print(chatbot_response)
-            history += message + "."
+            collected_events = []
+            completion_text = ''
+            streaming_response = query(message, stream=True, history=history)
+            print("Chatbot:", end="")
+            for event in streaming_response:
+                collected_events.append(event)  # save the event response
+                event_text = event['choices'][0]['text']  # extract the text
+                sys.stdout.write(event_text)
+                sys.stdout.flush()
+                completion_text += event_text  # append the text
+            print("")
+            history += completion_text + "."
             if message.lower() in ["bye", "goodbye", "exit", "quit"]:
                 break
     else:

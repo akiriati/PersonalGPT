@@ -5,16 +5,10 @@ from open_ai_api import get_embedding_batch, get_completion
 from constants import Config
 
 
-def query(question, history=""):
+def query(question, stream=False, history=""):
     df = pd.read_csv(Config.DB_PATH)
     prompt = construct_prompt(question, df, history, top_n=3)
-    # Get the answer
-    print(prompt)
-    response = get_completion(prompt)
-    return (response["choices"][0]["text"])
-
-
-
+    return get_completion(prompt, stream=stream)
 
 def construct_prompt(question, df, history="", top_n=Config.NUMBER_OF_MOST_RELEVANT_SECTIONS):
 

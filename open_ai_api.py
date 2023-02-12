@@ -4,8 +4,8 @@ from tenacity import retry, stop_after_attempt, wait_random_exponential
 from constants import Config
 
 @retry(wait=wait_random_exponential(min=1, max=20), stop=stop_after_attempt(6))
-def get_completion(prompt):
-    return openai.Completion.create(prompt=prompt, **Config.QUESTION_COMPLETIONS_API_PARAMS)
+def get_completion(prompt, stream=False):
+    return openai.Completion.create(prompt=prompt, stream=stream, **Config.QUESTION_COMPLETIONS_API_PARAMS)
 
 @retry(wait=wait_random_exponential(min=1, max=20), stop=stop_after_attempt(6))
 def get_embedding_batch(texts):
