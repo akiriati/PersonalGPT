@@ -1,5 +1,6 @@
 from typing import List
 
+from Extractors.Segmentors.segmentor import Segmentor
 from Extractors.extractor import Extractor
 from pdfminer.converter import PDFPageAggregator
 from pdfminer.layout import LAParams, LTTextBox
@@ -7,15 +8,11 @@ from pdfminer.pdfpage import PDFPage
 from pdfminer.pdfinterp import PDFResourceManager
 from pdfminer.pdfinterp import PDFPageInterpreter
 
+
 class PdfMinerExtractor(Extractor):
 
-    def __init__(self, full_filepath: str):
-        self.full_filepath = full_filepath
-
-    def get_segments(self) -> List[str]:
-        text_segments = []
-
-        with open(self.full_filepath, 'rb') as fp:
+    def get_segments(self, full_filepath: str) -> List[str]:
+        with open(full_filepath, 'rb') as fp:
             # Create a PDF resource manager and set parameters
             rsrcmgr = PDFResourceManager()
             laparams = LAParams()
@@ -29,6 +26,7 @@ class PdfMinerExtractor(Extractor):
 
             # Loop through all the pages in the PDF
             page_num = 0
+            all_texts = []
             for page in PDFPage.get_pages(fp):
                 page_num += 1
 
@@ -38,6 +36,7 @@ class PdfMinerExtractor(Extractor):
                 for lt_obj in layout:
                     if isinstance(lt_obj, LTTextBox):
                         page_text.append(lt_obj.get_text().strip())
-                text_segments.append("\n".join(page_text))
 
-        return text_segments
+                all_texts.append(page_text)
+
+            return all_texts
