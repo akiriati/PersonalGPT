@@ -8,7 +8,7 @@ A personal bot enriching GPT chatbot by using GPT3 API to get answers about your
 - The bot can then answer question about the content
 - Supported files:
   - 📜 Text (txt, md)
-  - 📄 Documents (pdf, doc, dox)
+  - 📄 Documents (pdf, doc, docx)
   - 🎬 Movies transcript (mp4, wmv, avi) 
   - 🔉 Sound (wav, mp3)
   - 🔗 Public web pages text (web, url, webloc)
