@@ -35,6 +35,7 @@ A personal bot enriching GPT chatbot by using GPT3 API to get answers about your
 python3 </YOUR/PATH/TO/FOLDER>/chatbot.py teach --path "$1"
 ```
 
+<img width="885" alt="Screenshot 2023-02-14 at 23 06 33" src="https://user-images.githubusercontent.com/10947653/218863170-cd6d2049-ac6c-438a-b394-32e4d29c585a.png">
 
 
 
