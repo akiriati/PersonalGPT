@@ -32,11 +32,11 @@ class PdfMinerExtractor(Extractor):
 
                 interpreter.process_page(page)
                 layout = device.get_result()
-                page_text = []
+                page_text = ""
                 for lt_obj in layout:
                     if isinstance(lt_obj, LTTextBox):
-                        page_text.append(lt_obj.get_text().strip())
+                        page_text += lt_obj.get_text().strip()
 
-                all_texts.append(page_text)
+                all_texts.append(page_text.strip())
 
             return all_texts

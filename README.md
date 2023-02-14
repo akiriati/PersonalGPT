@@ -7,11 +7,11 @@ A personal bot enriching GPT chatbot by using GPT3 API to get answers about your
 - The bot will automatically learn each file that is added to the folder 
 - The bot can then answer question about the content
 - Supported files:
-  - Text (txt, md)
-  - Documents (pdf, doc, dox)
-  - Movies transcript (mp4, wmv, avi) 
-  - Sound (wav, mp3)
-  - Public web pages text (web, url, webloc)
+  - 📜 Text (txt, md)
+  - 📄 Documents (pdf, doc, dox)
+  - 🎬 Movies transcript (mp4, wmv, avi) 
+  - 🔉 Sound (wav, mp3)
+  - 🔗 Public web pages text (web, url, webloc)
 
 ## Installation
 1. Clone the repository: `git clone https://github.com/akiriati/PersonalGPT.git`
