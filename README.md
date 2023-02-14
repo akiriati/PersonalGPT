@@ -32,14 +32,7 @@ A personal bot enriching GPT chatbot by using GPT3 API to get answers about your
 ## Autmoate folder
 - You can also autmoate a folder to teach the bot the content of a new file when it is added to the folder. In Mac this can be done by using the Automator.app -> Folder Action -> Run Shell Script -> 
 ```
-# Your Python program's path
-program_path=<PATH_TO_CHATBOT>
-
-# The filename of the newly added file
-filename="$1"
-
-# Run the Python program and pass the filename as an argument
-python3 "$program_path" "teach" "--path" "$filename"
+python3 /Users/alonk/src/PersonalGPT/chatbot.py teach --path "$1"
 ```
 
 
