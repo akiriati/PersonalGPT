@@ -22,8 +22,6 @@ if __name__ == "__main__":
     if args.command == "teach":
         if args.path:
             segments = extract_text_from_path(os.path.expanduser(args.path))
-            print (segments)
-            exit()
             print ("I'm always happy to learn new things :)")
             print("I'm sure there are a lot of interesting things I can learn in " + args.path)
             teach(segments)
