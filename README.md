@@ -21,7 +21,7 @@ A personal bot enriching GPT chatbot by using GPT3 API to get answers about your
 5. Run the bot: `python chatbot.py bot`
 
 ## Getting started 
-1. run `python chatbot.py teach --path "<PATH_TO_A_FOLDER_WITH_CONTENT>"`. This might a few seconds for each doc, and ~1 minute for every 30 minutes of sound/video 
+1. run `python chatbot.py teach --path "<PATH_TO_A_FOLDER_WITH_CONTENT>"`. This might take a few seconds for each doc, and ~1 minute for every 30 minutes of sound/video 
 2. run `python chatbot.py bot`
 
 ## Usage
