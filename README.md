@@ -5,7 +5,7 @@ A personal bot enriching GPT chatbot by using GPT3 API to get answers about your
 ## Features
 - The bot can scan a pre-configured data source (currently a folder on your PC), and learn the content
 - The bot will automatically learn each file that is added to the folder 
-- The bot can then answer question about the content
+- The bot can then answer questions about the content
 - Supported files:
   - 📜 Text (txt, md)
   - 📄 Documents (pdf, doc, docx)
