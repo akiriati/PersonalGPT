@@ -26,7 +26,7 @@ A personal bot enriching GPT chatbot by using GPT3 API to get answers about your
 
 ## Usage
 - Use the bot and communicate about your content by running `python chatbot.py bot`
-- Ask the bot single a question by running `python chatbot.py query --text "<YOUR_QUESTION_HERE>`
+- Ask the bot a single question by running `python chatbot.py query --text "<YOUR_QUESTION_HERE>`
 - Teach the bot the content of a folder / single file by running `python chatbot.py teach --path "<YOUR_PATH_HERE>`
 
 ## Autmoate folder
