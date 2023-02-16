@@ -11,7 +11,6 @@ class Config():
     COMPLETIONS_MODEL = None
     QUESTION_COMPLETIONS_API_PARAMS = None
     NUMBER_OF_MOST_RELEVANT_SECTIONS = None
-    CHROME_PROFILE = None
 
 # The directory of the Python file
 dir_path = os.path.dirname(os.path.abspath(__file__))
@@ -35,7 +34,6 @@ def init_constants_from_config():
 
     with open(os.path.join(dir_path,"config-secrets.yaml"), 'r') as stream:
         secret_config = yaml.safe_load(stream)
-        Config.CHROME_PROFILE = secret_config['CHROME_PROFILE']
         openai.api_key = secret_config['OPENAI_KEY']
 
 

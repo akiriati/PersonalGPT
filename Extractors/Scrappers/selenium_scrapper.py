@@ -11,7 +11,7 @@ class PlaywrightScrapper():
 
         # specify the path to your Chrome profile
         profile = webdriver.ChromeOptions()
-        profile.add_argument("user-data-dir="+Config.CHROME_PROFILE)
+        profile.add_argument()
 
         # enable headlefss mode
         profile.add_argument("--headless")
